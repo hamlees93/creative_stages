@@ -1,1 +1,105 @@
-{% extends 'layout.html %}
+{% extends 'layout.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %} Creating Stages {% endblock %}
+
+{% block content %}
+<div id="home" class="container-fluid info home">
+  <div class="tagline">
+  	<h1>CREATING STAGES</h1>
+  </div>
+</div>
+
+<div id="who" class="container-fluid info">
+  <div class="row content justify-content-center">	
+    <div class="row-fluid">
+      <div class="col-8">
+        <h1 class="title">Who Are We?</h1>
+      </div>
+      <div class="ml-5 col-8">
+        <p class="body_text"> Katie has recently returned from three years overseas where she was working as an actor and workshop facilitator for young people. In the UK, she did work in commercials, short films and theatre as well as touring two pantomine shows to schools and theatres throughout the UK. In 2017 she did a two month theatre tour in Turkey, performing an adaptation of Romeo and Juliet to high schools and theatres around the country. 
+
+        Katie spent eight months touring children’s theatre shows throughout Italy and worked with teenagers in one week intensive drama workshops to devise and develop their own shows. Katie also worked as a tutor at summer camps in Italy where she ran classes, games and activities using drama to teach English. The camps were aimed at presenting a final show at the end of the week and this is where Katie discovered the joy of seeing young people thrive when they are free to explore characters they want to play and stories they want to tell. Katie believes that everyone has creativity within, we just need the space to explore it. 
+
+        Before returning to Australia, Katie volunteered with The Flying Seagull Project in their Miles of Smiles Tour. The Flying Seagull Project take clown shows and circus workshops to vulnerable children to bring smiles and laughter to those who need it most. With The Flying Seagull Project, Katie performed at refugee centres in Germany, border refugee camps in Hungary, roma villages and children’s homes in Romania. 
+
+        Katie graduated in 2011 with a Bachelor of Creative Arts Performance from the University of Wollongong. She is looking forward to bring her knowledge, professional experience and passion for creativity to Creating Stages and the local community.  </p>
+      </div>
+    </div>
+  </div>	
+</div>
+
+<div id="what" class="container-fluid info">
+  <div class="row content justify-content-center">	
+    <div class="row-fluid">
+      <div class="col-8">
+        <h1 class="title">What We Do?</h1>
+      </div>
+      <div class="ml-5 col-8">
+        <p class="body_text"> Katie runs after school drama workshops throughout the school term, working towards an end of term show for parents and friends to come and see the amazing creativity of their young people. The activities in the workshops will include games and ice breakers to help all young people feel comfortable and welcome, character games and storytelling. End of term shows at Creating Stages will always be the young people’s own ideas and characters that they have developed themselves. Facilitating the young people to find their own characters and create their own stories allows their imaginations to grow freely and ignites a higher engagement in the material and the world around them. The workshops will be safe, supportive and creative spaces for young people to build their confidence, make friends and have fun. Katie is passionate about the environment and any costumes, props and sets used for end of term shows will be sourced ethically through op-shops, recycling or borrowing. No young person will be expected to spend extra money on costumes that will never get used again and will be encouraged to source from items they already have at home. </p>
+      </div>
+    </div>
+  </div>	
+</div>
+
+<div id="when" class="container-fluid info">
+  <div class="row content justify-content-center">	
+    <div class="row-fluid">
+      <div class="col-8">
+        <h1 class="title">When We Do It?</h1>
+      </div>
+      <div class="ml-5 col-8">
+        <p class="body_text">During Term 3, all the classes will be held on Tuesdays at the Glenbrook Public School hall. There will also be opportunities for school holiday workshops and other activities throughout the year. 
+
+4pm - 5pm: K-2
+5pm - 6pm: 3-6
+6pm - 7pm: High School</p>
+        <p class="body_text"> Link to <a href="{{ url_for('book') }}">Booking</a> </p>
+      </div>
+    </div>
+  </div>	
+</div>
+
+<!-- in future, try use JS to send data without reloading page -->
+<div id="how" class="container-fluid info">
+  <div id="contact" class="row content justify-content-center">	
+    <div class="row-fluid">
+      <div class="span12">
+        <h1 class="title">Contact Us</h1>
+      </div>
+      <div class="span8">
+        <form method="POST" action="{{ url_for('index') }}">
+		  {{ form.csrf_token }}
+
+		  {{ form.name.label }}
+		  {{ form.name }}
+		  <ul>
+		    {% for error in form.name.errors %}
+			<li class="error">{{ error }}</li>
+		    {% endfor %}
+		  </ul>
+		  {{ form.email.label }}
+		  {{ form.email }}
+		  <ul>
+		    {% for error in form.email.errors %}
+			<li class="error">{{ error }}</li>
+		    {% endfor %}
+		  </ul>
+		  {{ form.message.label }}
+		  {{ form.message }}
+		  <ul>
+		    {% for error in form.message.errors %}
+			<li class="error">{{ error }}</li>
+		    {% endfor %}
+		  </ul>
+          <ul>
+		    {{ form.submit }}
+		  </ul>
+	    </form>
+      </div>
+    </div>
+  </div>	
+</div>
+
+{{super()}}
+{% endblock %}
