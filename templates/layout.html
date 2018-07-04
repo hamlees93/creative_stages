@@ -1,12 +1,53 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}{% endblock %}
+{% block title %}Creating Stages{% endblock %}
 
+{% block styles %}
+  {{super()}}
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/jquery.js') }}"></script>
+{% endblock %}
+
+{% block body_attribs %}
+{{super()}}
+data-spy="scroll" data-target="#navbar" data-offset="0"
+{% endblock %}
 
 {% block navbar %}
 
+<nav id="navbar" class="navbar navbar-expand-md navbar-light sticky-top">
+  <a class="navbar-brand" href="#">
+    <img class="img-responsive" src="{{url_for('static', filename='img/small_logo.jpg')}}" alt="Logo" style="width:80px;height:80px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expand="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#who">Who?</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#what">What?</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#when">When?</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#how">How?</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
 {% endblock %}
 
-
 {% block content %}
+<footer>&copy; Copyright HamOfAllTrades2018</footer>
 {% endblock %}
